@@ -3,6 +3,7 @@ import {ATTRIBUTES, ID} from './config.js';
 import addDiceModifiers from './dialogs/add-dice-modifiers.js';
 import selectActor from './dialogs/select-actor.js';
 import selectAttribute from './dialogs/select-attribute.js';
+import selectArmorRollType from './dialogs/select-armor-roll-type.js';
 import {labelFor, localize} from './helpers/i18n';
 
 export class CoriolisBaseDie extends Die {
@@ -116,8 +117,14 @@ export function registerDice3D(dice3d) {
 }
 
 export async function rollArmor(actor, item) {
-    const roll = await new Roll(`${item.system.rating}db`, {}).evaluate();
-    return await postRoll(actor, undefined, item, undefined, undefined, roll);
+    try {
+        const type = await selectArmorRollType(item);
+        const value = type === 'armor' ? item.system.rating : item.system.blight_protection;
+        const roll = await new Roll(`${value}db`, {}).evaluate();
+        return await postRoll(actor, undefined, item, undefined, undefined, roll);
+    } catch (err) {
+        return null;
+    }
 }
 
 export async function rollBirdAbility(crew, item) {

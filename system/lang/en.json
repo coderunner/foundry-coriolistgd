@@ -207,6 +207,11 @@
         },
         "select_actor": {
           "title": "Select character"
+        },
+        "select_armor_roll_type": {
+          "title": "Select armor roll type",
+          "armor": "Armor",
+          "blight_protection": "Blight Protection"
         }
       }
     },

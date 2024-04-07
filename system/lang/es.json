@@ -207,6 +207,11 @@
         },
         "select_actor": {
           "title": "Selecciona personaje"
+        },
+        "select_armor_roll_type": {
+          "title": "Selecciona el rollo de armadura",
+          "armor": "Armadura",
+          "blight_protection": "Prot. contra ruina"
         }
       }
     },

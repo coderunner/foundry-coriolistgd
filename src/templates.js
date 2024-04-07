@@ -12,6 +12,7 @@ export async function preloadHandlebarsTemplates() {
         'parts/crew/notes',
         'dialogs/roll_modifiers',
         'dialogs/roll_attribute',
+        'dialogs/roll_armor',
         'chat/item',
         'chat/roll',
     ];
